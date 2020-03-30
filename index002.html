@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+</head>
+<body>
+<script>
+function makeLowercase() {
+document.form1.outstring.value = document.form1.instring.value.toLowerCase();}
+function makeUppercase() {
+document.form1.outstring.value = document.form1.instring.value.toUpperCase();}
+String.prototype.capitalize = function(){
+   return this.replace( /(^|\s)([a-z])/g , function(m,p1,p2){ return p1+p2.toUpperCase(); } );
+  };
+function capWords() {
+var inputString = document.form1.instring;
+var outputString = document.form1.outstring;
+outputString.value = inputString.value.capitalize();
+}
+</script>
+<h1>Manejo de Javascript</h1>
+<form name="form1" method="post">
+<input name="instring" type="text" value="CONVIERTELO" size="30">
+<input type="button" name="Convert" value="Minúsculas" onClick="makeLowercase();">
+<input type="button" name="Convert" value="Mayúsculas" onClick="makeUppercase();">
+<input type="button" name="Capitalize" value="Capitalizar" onClick="capWords();">
+<input name="outstring" type="text" value="" size="30">
+</form>
+</body>
+</html>
